@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>QR Code Generator</title>
+        
+        <!-- Load Bootstrap first -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        
+        <!-- Load your custom styles after Bootstrap -->
+        <link rel="stylesheet" href="./static/assets/style.css">
+        
+        <!-- Font -->
+        <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet'>
+    </head>
+<body>
+
+<div class="container mt-5 text-center"> <!-- Added text-center for centering content -->
+    <h2>QR Code Generator</h2>
+    <form action="/" method="post" class="mt-4">
+        <div class="form-group">
+            <label for="url">URL:</label>
+            <input type="text" class="form-control" id="url" name="url" required>
+        </div>
+
+        <h5 class="mt-3">Select an Icon:</h5>
+        <div class="row justify-content-center"> <!-- Added justify-content-center for centering the icons within the grid -->
+            {% for icon in icons %}
+                <div class="col-md-2">
+                    <div class="icon-tile">
+                        <input type="radio" name="icon" value="{{ icon }}" id="{{ icon }}" class="icon-radio">
+                        <label for="{{ icon }}" class="icon-label">
+                            <img src="{{ url_for('static', filename='icons/' + icon) }}" alt="{{ icon }}" class="img-fluid">
+                        </label>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-4">Generate QR Code</button>
+    </form>
+
+    {% if qr_img_path %}
+        <div class="qr-preview mt-5">
+            <h3>Generated QR Code:</h3>
+            <img src="{{ qr_img_path }}" alt="Generated QR Code" class="img-fluid">
+            <a href="{{ url_for('download_qr') }}" class="btn btn-success mt-2">Download QR Code</a>
+            <!-- Social media sharing buttons -->
+            <button onclick="shareTo('facebook', '{{ qr_img_path }}')" class="btn btn-primary mt-2">Share on Facebook</button>
+            <button onclick="shareTo('twitter', '{{ qr_img_path }}')" class="btn btn-info mt-2">Share on Twitter</button>
+        </div>
+    {% endif %}
+</div>
+
+<script src="./static/assets/script.js"></script>
+</body>
+</html>

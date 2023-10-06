@@ -1,0 +1,45 @@
+body {
+    font-family: 'Orbitron', sans-serif !important;
+    background-color: #f4f4f4 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.container {
+    width: 80% !important;
+    margin: 0 auto !important;
+    padding-top: 50px !important;
+    background-color: #fff !important;
+    border-radius: 8px !important;
+    padding: 20px !important;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.icon-tile {
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.icon-tile img {
+    width: 25% !important;
+    cursor: pointer !important;
+    transition: 0.3s ease-in-out !important;
+}
+
+.icon-radio {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    opacity: 0 !important;
+    cursor: pointer !important;
+}
+
+.icon-tile:hover img {
+    transform: scale(1.1) !important;
+}
+
+.icon-radio:checked + .icon-label img {
+    border: 2px solid green !important;
+    box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.5) !important;
+}
+
