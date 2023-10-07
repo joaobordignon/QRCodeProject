@@ -48,8 +48,11 @@
             <img src="{{ qr_img_path }}" alt="Generated QR Code" class="img-fluid">
             <a href="{{ url_for('download_qr') }}" class="btn btn-success mt-2">Download QR Code</a>
             <!-- Social media sharing buttons -->
+        </div>
+        <div>
             <button onclick="shareTo('facebook', '{{ qr_img_path }}')" class="btn btn-primary mt-2">Share on Facebook</button>
             <button onclick="shareTo('twitter', '{{ qr_img_path }}')" class="btn btn-info mt-2">Share on Twitter</button>
+            <button onclick="shareTo('linkedin', '{{ qr_img_path }}')" class="btn btn-info mt-2">Share on LinkedIn</button>
         </div>
     {% endif %}
 </div>

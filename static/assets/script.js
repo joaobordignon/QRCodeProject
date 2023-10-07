@@ -13,6 +13,8 @@ function shareTo(platform, url) {
         case 'twitter':
             shareURL = `https://twitter.com/intent/tweet?url=${encodedURL}&text=${customMessage}`;
             break;
+        case 'linkedin':
+            
     }
 
     window.open(shareURL, 'ShareDialog', `width=${width},height=${height}`);
